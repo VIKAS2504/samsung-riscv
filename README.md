@@ -22,4 +22,8 @@ Execution of sum1ton.c file
   riscv64-unknown-elf-objdump -d sum1ton.o
   ```
 
-![RISCvds](https://github.com/user-attachments/assets/51b26b54-ffc5-4e2f-a572-0c616bc602fd)
+![riscv](https://github.com/user-attachments/assets/530c95b8-4d3d-4bdf-a3ad-286740dc4f70)
+
+To locate main in code use `/main`
+![riscvmain](https://github.com/user-attachments/assets/5ba725be-498b-4b3a-8421-e60a96e78ea3)
+
