@@ -1,5 +1,13 @@
 # samsung-riscv
 ## C Language Based Lab
+## Basic Details:
+Name: B M Vikas
+
+College: Vidyavardhaka College of Engineering
+
+Email ID: bmvikas25@gmail.com
+
+GitHub Profile: VIKAS2504
 
 ### Compilation using GCC Compiler
 
