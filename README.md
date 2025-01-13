@@ -51,6 +51,8 @@ Test your SPIKE installation using a simple program (sum_1ton.c). Compile and ex
 gcc sum_1ton.c  
 ./a.out
 ```
+![VirtualBox_vsdworkshop_13_01_2025_20_50_53](https://github.com/user-attachments/assets/6e9fa614-7db8-4e08-a1ca-100ae25d6ce5)
+
   
 ### Compile and Run with SPIKE  
 ```
@@ -62,6 +64,8 @@ To inspect the assembly language output of a compiled program, use:
 ```
 riscv64-unknown-elf-objdump -d sum_1ton.o | less
 ```
+![VirtualBox_vsdworkshop_13_01_2025_20_48_01](https://github.com/user-attachments/assets/037ef66d-fc3d-4c91-9249-0eb3c95f8c07)
+
 
 
 ## Debugging RISC-V Programs with SPIKE  
@@ -83,3 +87,5 @@ Use optimization flags during compilation to observe how the output changes:
 -Ofast Optimization:** Aggressive optimizations that maximize performance but may compromise accuracy.  
 
 Compare the objdump outputs for different optimization levels to analyze their impact.  
+![VirtualBox_vsdworkshop_13_01_2025_20_47_10](https://github.com/user-attachments/assets/3eb307b4-0284-4501-b521-34d2f4d0317e)
+
