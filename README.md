@@ -278,5 +278,126 @@ Ex : jal x1, 0x1000
 
 ![j-type](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/5dc9a9be-4048-4a35-a99e-7b4a0075caa0)
 ---
+
+# RISC-V Instruction Analysis
+
+This repository contains an analysis of 15 unique RISC-V instructions extracted from an object file. Each instruction is decoded to include its opcode, format, machine code, and binary representation.
+
+## Overview
+
+This project provides a breakdown of 15 RISC-V instructions. It explains their functionality and how they are encoded in machine language, making it useful for developers interested in low-level programming or CPU architecture.
+
+## 15 Unique Instruction Details
+
+Here are the 15 instructions analyzed in the below attached objdump file:
+![objdump](https://github.com/user-attachments/assets/fd16a51e-5ece-4116-9435-bf605906d791)
+
+
+### 1. `lui`
+- **Description:** Load Upper Immediate - Loads a 20-bit immediate into the upper 20 bits of a register.
+- **Example:** `00021537`
+  - Opcode: `0110111`
+  - Format: U-type
+  - Binary: `00000000001000010101000000110111`
+
+### 2. `addi`
+- **Description:** Add Immediate - Adds an immediate value to a register.
+- **Example:** `ff010113`
+  - Opcode: `0010011`
+  - Format: I-type
+  - Binary: `11111111000000010000000000010011`
+
+### 3. `li`
+- **Description:** Load Immediate - Loads a small immediate into a register (pseudo-instruction for `addi`).
+- **Example:** `00f00613`
+  - Opcode: `0010011`
+  - Format: I-type
+  - Binary: `00000000111100000000000001100011`
+
+### 4. `sd`
+- **Description:** Store Doubleword - Stores a 64-bit value from a register into memory.
+- **Example:** `00113423`
+  - Opcode: `0100111`
+  - Format: S-type
+  - Binary: `00000000000100010011010000100011`
+
+### 5. `jal`
+- **Description:** Jump and Link - Jumps to a specified address and stores the return address in a register.
+- **Example:** `340000ef`
+  - Opcode: `1101111`
+  - Format: J-type
+  - Binary: `00110100000000000000000011101111`
+
+### 6. `ld`
+- **Description:** Load Doubleword - Loads a 64-bit value from memory into a register.
+- **Example:** `00813083`
+  - Opcode: `0000011`
+  - Format: I-type
+  - Binary: `00000000100000010011000010000011`
+
+### 7. `ret`
+- **Description:** Return from subroutine (pseudo-instruction for `jalr`).
+- **Example:** `00008067`
+  - Opcode: `1100111`
+  - Format: I-type
+  - Binary: `00000000000000001000000001100111`
+
+### 8. `auipc`
+- **Description:** Add Upper Immediate to PC - Adds a 20-bit immediate to the program counter.
+- **Example:** `ffff0797`
+  - Opcode: `0010111`
+  - Format: U-type
+  - Binary: `11111111111111110000011110010111`
+
+### 9. `beqz`
+- **Description:** Branch if Equal to Zero (pseudo-instruction for `beq`).
+- **Example:** `00078863`
+  - Opcode: `1100011`
+  - Format: B-type
+  - Binary: `00000000000001111000100001100011`
+
+### 10. `sub`
+- **Description:** Subtract - Subtracts the value in one register from another.
+- **Example:** `40a60633`
+  - Opcode: `0110011`
+  - Format: R-type
+  - Binary: `01000000101001100000011000110011`
+
+### 11. `j`
+- **Description:** Unconditional Jump (pseudo-instruction for `jal`).
+- **Example:** `0c00006f`
+  - Opcode: `1101111`
+  - Format: J-type
+  - Binary: `00001100000000000000000001101111`
+
+### 12. `lw`
+- **Description:** Load Word - Loads a 32-bit value from memory into a register.
+- **Example:** `00012503`
+  - Opcode: `0000011`
+  - Format: I-type
+  - Binary: `00000000000000010010010100000011`
+
+### 13. `jalr`
+- **Description:** Jump and Link Register - Jumps to an address in a register and saves the return address.
+- **Example:** `f7dff0ef`
+  - Opcode: `1100111`
+  - Format: I-type
+  - Binary: `11110111110111111111000011101111`
+
+### 14. `slli`
+- **Description:** Shift Left Logical Immediate - Shifts a register value left by an immediate value.
+- **Example:** `00009613`
+  - Opcode: `0010011`
+  - Format: I-type
+  - Binary: `00000000000010010110000001100011`
+
+### 15. `or`
+- **Description:** Bitwise OR - Performs a bitwise OR operation between two registers.
+- **Example:** `00560633`
+  - Opcode: `0110011`
+  - Format: R-type
+  - Binary: `00000000010101100000011000110011`
+
 </details>
+
 
