@@ -1,4 +1,3 @@
-# samsung-riscv
 ## C Language Based Lab
 ## Basic Details:
 Name: B M Vikas
@@ -9,7 +8,7 @@ Email ID: bmvikas25@gmail.com
 
 GitHub Profile: VIKAS2504
 <details>
-<summary><b>Task 1:</b> Task 1: To compile C code, use the GCC compiler for the native architecture, or utilize a cross-compiling toolchain to target the RISC-V architecture. simulator</summary>   
+<summary><b>Task 1:</b> Task 1: To compile C code, use the GCC compiler for the native architecture, or utilize a cross-compiling toolchain to target the RISC-V architecture. </summary>   
 <br>
    
 ### Compilation using GCC Compiler
@@ -40,7 +39,7 @@ To locate main in code use `/main`
 </details>
 
 <details>
-<summary><b>Task 2:</b> Task 2: The task is to review the C-based and RISC-V-based lab videos and perform the compilation of C code using both the GCC and RISC-V compilers.. simulator</summary>   
+<summary><b>Task 2:</b> Task 2: The task is to review the C-based and RISC-V-based lab videos and perform the compilation of C code using both the GCC and RISC-V compilers. </summary>   
 <br>
    
 ### RISC-V SPIKE Simulator 
@@ -99,7 +98,7 @@ Compare the objdump outputs for different optimization levels to analyze their i
 </details>
 
 <details>
-<summary><b>Task 3:</b> Task 3:The task is to identify the instruction type for each provided instruction and provide the corresponding 32-bit instruction codes in the correct format.simulator</summary>   
+<summary><b>Task 3:</b> Task 3:The task is to identify the instruction type for each provided instruction and provide the corresponding 32-bit instruction codes in the correct format. </summary>   
 <br>
    
 # Understanding RISC-V Instruction Set Architecture (ISA)
@@ -399,5 +398,36 @@ Here are the 15 instructions analyzed in the below attached objdump file:
   - Binary: `00000000010101100000011000110011`
 
 </details>
+
+<details>
+<summary><b>Task 4:</b> Simulator Setup and Functional Simulation. </summary>   
+<br>
+
+### Installation of Iverilog and GTKWave
+
+The installation of Iverilog and GTKWave can be completed using the commands specified below:
+
+```bash
+sudo apt update
+sudo apt install iverilog
+sudo apt install gtkwave
+```
+A directory is created and execution of verilog and testbench code is done for waveform generation:
+
+![waveform generation](https://github.com/user-attachments/assets/d6580e4a-de93-4f8d-8dc5-093979681fc4)
+
+### Generated Waveform
+
+To view the generated waveform, use the following commands:
+
+```bash
+./iiitb_rv32ib
+gtkwave iiitb_rv32i.vcd
+```
+Waveform:
+![waveform](https://github.com/user-attachments/assets/4d6d6875-875b-4380-812d-337d08b7d0d5)
+
+
+
 
 
