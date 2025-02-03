@@ -428,6 +428,71 @@ Waveform:
 ![waveform](https://github.com/user-attachments/assets/4d6d6875-875b-4380-812d-337d08b7d0d5)
 
 
+### Studying the waveform behavior of different RISC-V instructions
+
+Instruction 1: ADD R6, R2, R1 
+
+![Image 1](https://github.com/user-attachments/assets/37299fb4-bfcf-4272-ad2b-667d042e2479)
+
+---
+Instruction 2: SUB R7, R1, R2
+
+![Image 2](https://github.com/user-attachments/assets/4aa852c0-1640-4ebb-b14f-cc6f8fede198)
+
+---
+Instruction 3: AND R8, R1, R3
+
+![Image 3](https://github.com/user-attachments/assets/5bb321c2-f3d0-466a-a430-65d472e0dea1)
+
+---
+Instruction 4: OR R9, R2, R5
+
+![Image 4](https://github.com/user-attachments/assets/515a22e5-32e9-417c-900d-328b3c619f73)
+
+
+---
+
+Instruction 5: XOR R10, R1, R4
+
+![Image 5](https://github.com/user-attachments/assets/fa1f9175-2006-4671-9fbb-d4963fc99a90)
+
+---
+
+Instruction 6: SLT R1, R2, R4
+
+![Image 6](https://github.com/user-attachments/assets/55f6deda-1fb2-4fee-896b-20193b3933ec)
+
+---
+
+Instruction 7: ADDI R12, R4, 5
+
+![Image 7](https://github.com/user-attachments/assets/90978298-e69f-4205-9ad3-0a9717fbf9eb)
+
+---
+
+Instruction 8: BEQ R0, R0, 15
+
+![Image 8](https://github.com/user-attachments/assets/4b369951-0f2c-47ff-a2a0-f0ff381c9956)
+
+---
+
+Instruction 9:sw r3,r1,2
+
+![Image 9](https://github.com/user-attachments/assets/f334403e-3a6a-404f-a4fa-66a5070c0fab)
+
+---
+
+Instruction 10:lw r13,r1,2
+
+![Image 10](https://github.com/user-attachments/assets/0f547932-3d99-4a1c-a4fd-ab07e5775ce5)
+
+---
+RISCV-5stage-instruction-waveform
+
+![Image 11](https://github.com/user-attachments/assets/99ae5b5a-0eba-4def-9152-f85ce9b87f5c)
+
+</details>
+
 
 
 
