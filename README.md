@@ -493,6 +493,130 @@ RISCV-5stage-instruction-waveform
 
 </details>
 
+<details>
+<summary><b>Task 5 and 6:</b> VSDSquadron Mini RISC-V Board. </summary>   
+<br>
+   
+## 7-Segment Display Driver Using VSDSquadron Mini
 
+## Overview
+This project showcases the integration of the CH32V003 RISC-V processor to control a 7-segment LED display. The processor decodes numeric values into their binary representation and controls the segments accordingly, automating the display process. Currently, a single 7-segment display is managed, with plans for future support of multiple displays.
+
+## Components Required
+- VSDSquadron Mini
+- 7-segment display (Common Anode/Common Cathode)
+- Breadboard
+- Power supply
+- Jumper wires
+- Resistors
+
+## Circuit Connections
+1. Connect the common anode/cathode pin to VCC or GND via a resistor (depending on display type).
+2. Wire the segment pins to the microcontroller as follows:
+   - **PD0** → Segment **a**
+   - **PC0** → Segment **b**
+   - **PD2** → Segment **c**
+   - **PD3** → Segment **d**
+   - **PD4** → Segment **e**
+   - **PD5** → Segment **f**
+   - **PD6** → Segment **g**
+
+These pins receive on/off signals from the processor to control the respective display segments.
+![ckt_diag](https://github.com/user-attachments/assets/6f18c52c-88c6-477e-ae14-f5aac9cff178)
+
+## Pin Connection Table
+| Segment | Microcontroller Pin |
+|---------|---------------------|
+| a       | PD0                 |
+| b       | PC0                 |
+| c       | PD2                 |
+| d       | PD3                 |
+| e       | PD4                 |
+| f       | PD5                 |
+| g       | PD6                 |
+| CA/CC   | VCC/GND             |
+
+## Code Implementation
+The following C program initializes the GPIO pins and manages the display:
+
+```c
+#include <ch32v00x.h>
+#include <debug.h>
+
+#define a GPIO_Pin_0
+#define b GPIO_Pin_1
+#define c GPIO_Pin_2
+#define d GPIO_Pin_3
+#define e GPIO_Pin_4
+#define f GPIO_Pin_5
+#define g GPIO_Pin_6
+
+int outar[] = {0, 0, 0, 0, 0, 0, 0};
+int out[] = {126, 48, 109, 121, 51, 91, 95, 112, 127, 123, 119, 31, 78, 61, 79, 71};
+
+void GPIO_Config(void);
+void assign(int);
+
+void GPIO_Config(void) {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+    
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+    
+    GPIO_InitStructure.GPIO_Pin = a;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    
+    GPIO_InitStructure.GPIO_Pin = b;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+    
+    GPIO_InitStructure.GPIO_Pin = c;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = d;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = e;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = f;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = g;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
+
+int main() {
+    Delay_Init();
+    GPIO_Config();
+    
+    while (1) {
+        for (int i = 0; i < 16; i++) {
+            assign(i);
+            
+            GPIO_WriteBit(GPIOD, a, outar[6] ? SET : RESET);
+            GPIO_WriteBit(GPIOC, b, outar[5] ? SET : RESET);
+            GPIO_WriteBit(GPIOD, c, outar[4] ? SET : RESET);
+            GPIO_WriteBit(GPIOD, d, outar[3] ? SET : RESET);
+            GPIO_WriteBit(GPIOD, e, outar[2] ? SET : RESET);
+            GPIO_WriteBit(GPIOD, f, outar[1] ? SET : RESET);
+            GPIO_WriteBit(GPIOD, g, outar[0] ? SET : RESET);
+            
+            Delay_Ms(5000);
+        }
+    }
+}
+
+void assign(int num) {
+    int mask = 1;
+    for (int i = 0; i < 7; i++) {
+        outar[i] = (mask & out[num]) ? 1 : 0;
+        mask = mask << 1;
+    }
+}
+```
+
+## Future Enhancements
+- Support for multiple 7-segment displays.
+- Optimized power consumption.
+- Integration with external input sources for dynamic updates.
+</details>
 
 
