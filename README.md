@@ -541,7 +541,7 @@ The ultrasonic sensor is connected to the VSDSquadron Mini as follows:
 <details>
 <summary><b>Task 6:</b> Object Detector with CH32V003 and Ultrasonic Sensor with working video. </summary>   
 <br> 
-
+https://drive.google.com/file/d/1wU6NPaPTCZw-IDu1xYPjhZTNdxJNQKzl/view?usp=drivesdk
 </details>
 
 
