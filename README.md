@@ -534,7 +534,8 @@ The ultrasonic sensor is connected to the VSDSquadron Mini as follows:
 - `GPIO_WriteBit(GPIOx, PIN, BitVal)`: Sets or clears a specific output pin, used for controlling the LED and the ultrasonic sensor’s trigger.
 
 ## Connections
-![Connections](https://github.com/user-attachments/assets/fb24160d-cf05-46d9-8627-1524dc81ce1d)
+![connection](https://github.com/user-attachments/assets/7d742d4e-3d4f-4857-bb2f-6d83a6689587)
+
 
 </details>
 
@@ -556,7 +557,8 @@ This project demonstrates an object detection system using an ultrasonic sensor 
 - **Trigger (PD2)**: Sends a pulse to the ultrasonic sensor.
 - **Echo (PD4)**: Receives the reflected signal.
 - **LED (PD3)**: Indicates object detection.
-![IMG_1497 1](https://github.com/user-attachments/assets/73f3accc-507c-44e6-939a-73affa63f558)
+![circuit](https://github.com/user-attachments/assets/f1bae012-9b07-48bb-84da-097f4abfeea8)
+
 
 
 ## Code Implementation
