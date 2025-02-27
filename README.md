@@ -533,7 +533,14 @@ The ultrasonic sensor is connected to the VSDSquadron Mini as follows:
 - `GPIO_ReadInputDataBit(GPIOx, PIN)`: Reads the state of an input pin.
 - `GPIO_WriteBit(GPIOx, PIN, BitVal)`: Sets or clears a specific output pin, used for controlling the LED and the ultrasonic sensor’s trigger.
 
-![Uploading Connections.jpg…]()
+## Connections
+![Connections](https://github.com/user-attachments/assets/fb24160d-cf05-46d9-8627-1524dc81ce1d)
+
+</details>
+
+<details>
+<summary><b>Task 6:</b> Object Detector with CH32V003 and Ultrasonic Sensor with working video. </summary>   
+<br> 
 
 </details>
 
