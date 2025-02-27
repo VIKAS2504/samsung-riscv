@@ -541,7 +541,92 @@ The ultrasonic sensor is connected to the VSDSquadron Mini as follows:
 <details>
 <summary><b>Task 6:</b> Object Detector with CH32V003 and Ultrasonic Sensor with working video. </summary>   
 <br> 
+   
+# Ultrasonic Sensor-Based Object Detection System
+## Overview
+This project demonstrates an object detection system using an ultrasonic sensor with the CH32V00x microcontroller. The system sends a short ultrasonic pulse and listens for an echo signal to detect the presence of an object. If an object is detected, an LED indicator is turned on.
+
+## Features
+- Ultrasonic pulse triggering via GPIO pin PD2
+- Echo detection via GPIO pin PD4
+- LED alert system controlled via GPIO pin PD3
+- Simple, efficient object detection mechanism
+
+## Circuit Diagram
+- **Trigger (PD2)**: Sends a pulse to the ultrasonic sensor.
+- **Echo (PD4)**: Receives the reflected signal.
+- **LED (PD3)**: Indicates object detection.
+![IMG_1497 1](https://github.com/user-attachments/assets/73f3accc-507c-44e6-939a-73affa63f558)
+
+
+## Code Implementation
+### GPIO Configuration
+```c
+#include <ch32v00x.h>
+#include <debug.h>
+
+void GPIO_Config(void) {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
+
+    // Configure echo and trigger pins
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_4;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    // Configure trigger and LED pins
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
+```
+
+### Main Function
+```c
+int main(void) {
+    uint8_t echo_status = 0;
+
+    SystemCoreClockUpdate();
+    Delay_Init();
+    GPIO_Config();
+
+    while (1) {
+        // Trigger ultrasonic sensor
+        GPIO_WriteBit(GPIOD, GPIO_Pin_2, SET);
+        Delay_Ms(10); // Trigger pulse width
+        GPIO_WriteBit(GPIOD, GPIO_Pin_2, RESET);
+
+        echo_status = GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_4);
+
+        if (echo_status == 1) {
+            // Object detected, turn LED off
+            GPIO_WriteBit(GPIOD, GPIO_Pin_3, RESET);
+            Delay_Ms(2500);
+        } else {
+            // No object detected, turn LED on
+            GPIO_WriteBit(GPIOD, GPIO_Pin_3, SET);
+        }
+    }
+}
+```
+## Working Video link
 https://drive.google.com/file/d/1wU6NPaPTCZw-IDu1xYPjhZTNdxJNQKzl/view?usp=drivesdk
+
+## Working Principle
+1. The microcontroller sends a short ultrasonic pulse through PD2.
+2. If an object is in range, the ultrasonic pulse reflects and is received on PD4.
+3. The system detects a high signal on the ECHO pin and responds accordingly:
+   - **Object detected:** LED is turned **off**.
+   - **No object detected:** LED is turned **on**.
+
+## Applications
+- **Object Detection**: Parking assistance, robotic obstacle avoidance, and home automation.
+- **Security Systems**: Motion detection in restricted areas.
+- **Distance Measurement**: Used in manufacturing, liquid level monitoring, and object height measurement.
+- **Liquid Level Detection**: Ensures stable readings despite surface disturbances.
+
 </details>
 
 
