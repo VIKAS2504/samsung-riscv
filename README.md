@@ -493,5 +493,49 @@ RISCV-5stage-instruction-waveform
 
 </details>
 
+<details>
+<summary><b>Task 5:</b> Object Detector with CH32V003 and Ultrasonic Sensor. </summary>   
+<br>
+   
+## Object Detector with CH32V003 and Ultrasonic Sensor
+
+## Overview
+The Object Detector project integrates an ultrasonic sensor with the CH32V003 RISC-V processor to detect nearby objects. By utilizing the ultrasonic sensor, the system can detect objects within its range and alert the user by switching on an LED. This project is designed for various applications, including obstacle detection, proximity sensing, and as a component in larger automated systems.
+
+## Components Required
+### 1. Hardware
+- CH32V003 RISC-V processor
+- Ultrasonic sensor (HC-SR04)
+- LED
+- Power Supply
+- Breadboard
+- Jumper Wires
+
+### 2. Software
+- VSCode
+- PlatformIO
+
+## Hardware Connections
+The ultrasonic sensor is connected to the VSDSquadron Mini as follows:
+
+| Ultrasonic Sensor Pin | VSDSquadron Mini Pin |
+|----------------------|----------------------|
+| TRIG                | PD2                  |
+| ECHO                | PD4                  |
+| GND                 | GND                  |
+| VCC                 | 3.3V                 |
+
+
+## API Reference
+
+- `USART_Printf_Init()`: Initializes the USART peripheral for debugging and output.
+- `Delay_Ms(ms)`: Generates a millisecond delay, useful for timing and sensor control.
+- `GPIO_ReadInputDataBit(GPIOx, PIN)`: Reads the state of an input pin.
+- `GPIO_WriteBit(GPIOx, PIN, BitVal)`: Sets or clears a specific output pin, used for controlling the LED and the ultrasonic sensor’s trigger.
+
+![Uploading Connections.jpg…]()
+
+</details>
+
 
 
